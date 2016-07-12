@@ -33,5 +33,10 @@ angular.module('starter', ['ionic'])
   .state('menu', {
     url: '/menu',
     templateUrl: 'templates/menu.html',
+  })
+  .state('addItem', {
+    url: '/addItem',
+    templateUrl: 'templates/addItem.html',
+    controller: 'addItemCtrl'
   });
 });

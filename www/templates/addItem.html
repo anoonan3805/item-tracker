@@ -1,0 +1,47 @@
+<ion-view view-title="Add Item">
+    <ion-content class="padding">
+        <div class="list list-inset">
+  <label class="item item-input">
+      <span class="input-label">Item name</span>
+    <input type="text">
+  </label>
+  <label class="item item-input">
+       <span class="input-label">Add picture</span>
+    <input type="text" placeholder="Optional">
+  </label>
+  <label class="item item-input">
+       <span class="input-label">Description</span>
+    <input type="text">
+  </label>
+  <label class="item item-input item select">
+       <span class="input-label">Location</span>
+        <!--<select ng-model="selectedItem">
+    <option ng-repeat="item in items" value="{{item}}">{{item}}</option>
+    <option ng-blur="addRoom()"><input type="text" placeholder="Add new" id="newRoom"></option>
+    <script>
+    addItem = function () {
+      $scope.items[] = document.getElementById("newItem").value;
+  }
+  </script>
+  </select>-->
+      
+      <select ng-model="selectedRoom">
+         <option ng-blur="addRoom()"><input type="text" placeholder="Add new" id="newRoom">Add Room</option>
+         <!--<option>Garage</option>
+         <option>Basement</option>
+         <option>Attic</option>
+         <option>Master Bedroom</option>
+         <option>Bathroom</option>
+         <option>Kitchen</option>
+      <option>Living Room</option>-->
+      
+    </select>
+    <input type="text">
+  </label>
+</div>
+        <button class="button button-outline button-calm">
+          Add new item
+          <i class="ion-ios-plus-outline"></i>
+        </button></center>
+    </ion-content>
+</ion-view>
