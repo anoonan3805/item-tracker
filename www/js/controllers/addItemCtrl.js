@@ -22,4 +22,28 @@ angular.module('starter.controllers')
             $scope.roomName = {};
 
         };
+        
+        $scope.items =[{
+            name: '',
+       
+            pic:'',
+        
+            description:'',
+        
+            location: '',
+        }];
+        
+        $scope.item = {};
+        
+        $scope.addItem=function(){
+        
+            $scope.items.push(
+                $scope.item
+            );
+            
+            //Clear input fields after push
+            $scope.item = {};
+            
+        };
+        
     });
