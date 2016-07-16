@@ -8,7 +8,9 @@
   </label>
             <label class="item item-input">
        <span class="input-label">Add picture</span>
-       <input type="file" placeholder="Optional" name="pic" ng-model="item.pic" accept="image/*">
+       <input name="pic" type="text" ng-model="item.pic" placeholder="Paste your image url here to preview your picture">
+       <!--<input type="file" onchange="readURL(this);" name="pic" ng-model="item.pic" accept="image/*;capture=camera">-->
+    <img id="blah" src="{{item.pic}}" width="200px">
   </label>
             <label class="item item-input">
        <span class="input-label">Description</span>

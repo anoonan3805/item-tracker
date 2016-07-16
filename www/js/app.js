@@ -48,6 +48,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ionic.i
   .state('itemName', {
     url: '/itemName',
     templateUrl: 'templates/itemName.html',
+    controller: 'itemNameCtrl'
   })
   .state('itemPic', {
     url: '/itemPic',
