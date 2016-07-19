@@ -1,4 +1,16 @@
-<ion-list>
-        <ion-item auto-divider auto-divider-value="{{item.user.gender}}" auto-divider-function="dividerFunction" class="item-avatar" ng-repeat="item in items">
-    </ion-item>
-</ion-list>
+<ion-view view-title="Locations">
+    <ion-nav-buttons side="left">
+        <button class="button" ng-click="menuButtonTapped()" ng-show="shouldShowButton">
+        Menu
+</button>
+
+    </ion-nav-buttons>
+    
+    <ion-content>
+        <ion-list>
+         <ion-item collection-repeat="item in items |orderBy:'location'" ng-click="goToItem(item)">
+    {{item.items}}
+</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

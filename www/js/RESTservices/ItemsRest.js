@@ -3,7 +3,7 @@ angular.module('RESTServices')
 .service('ItemsRest', ['$http', '$window', function($http, $window){
     
     var ItemsRest = this;
-    var apiUrl = 'https://item-tracker-anoonan3805.c9users.io/api/itemName';
+    var apiUrl = 'https://item-tracker-anoonan3805.c9users.io/api/Items';
     ItemsRest.save = function(item){
         return $http ({
             url: apiUrl,
@@ -14,15 +14,23 @@ angular.module('RESTServices')
             }
         });
     
-    }
+    };
 
-    ItemsRest.get = function(token,userID){
+    ItemsRest.get = function(){
         return $http ({
-            url: 'https://item-tracker-anoonan3805.c9users.io/api/itemName?filter[where][userID]=' + userID,
-            method: 'GET',
-            headers:{
-                'Authorization':token
+            url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+            //?filter[where][userID]=' + userID,
+            method: 'GET'
             }
-        });
+        );
     };
 }]);
+
+
+// ItemsRest.get = function(token,userID){
+//         return $http ({
+//             url: 'https://item-tracker-anoonan3805.c9users.io/api/itemName',
+//             //?filter[where][userID]=' + userID,
+//             method: 'GET',
+//             headers:{
+//                 'Authorization':token

@@ -3,11 +3,11 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ionic.ion.autoListDivider', 'RESTServices'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ionic.ion.autoListDivider', 'RESTServices', 'ItemsList'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
+    if (window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -17,7 +17,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ionic.i
       // a much nicer keyboard experience.
       cordova.plugins.Keyboard.disableScroll(true);
     }
-    if(window.StatusBar) {
+    if (window.StatusBar) {
       StatusBar.styleDefault();
     }
   });
@@ -26,42 +26,65 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'ionic.i
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
-  .state('landing', {
-    url: '/',
-    templateUrl: 'templates/landing.html',
-    controller: 'landingCtrl'
-  })
-  .state('register', {
-    url: '/register',
-    templateUrl: 'templates/register.html',
-    controller: 'registerCtrl'
-  })
-  .state('menu', {
-    url: '/menu',
-    templateUrl: 'templates/menu.html',
-  })
-  .state('addItem', {
-    url: '/addItem',
-    templateUrl: 'templates/addItem.html',
-    controller: 'addItemCtrl'
-  })
-  .state('itemName', {
-    url: '/itemName',
-    templateUrl: 'templates/itemName.html',
-    controller: 'itemNameCtrl'
-  })
-  .state('itemPic', {
-    url: '/itemPic',
-    templateUrl: 'templates/itemPic.html',
-    controller: 'itemPicCtrl',
-  })
-  .state('itemLoc', {
-    url: '/itemLoc',
-    templateUrl: 'templates/itemLoc.html',
-    controller: 'itemLocCtrl'
-  });
-    
+    .state('landing', {
+      url: '/',
+      templateUrl: 'templates/landing.html',
+      controller: 'landingCtrl'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'registerCtrl'
+    })
+    .state('menu', {
+      url: '/menu',
+      templateUrl: 'templates/menu.html',
+    })
+    .state('addItem', {
+      url: '/addItem',
+      templateUrl: 'templates/addItem.html',
+      controller: 'addItemCtrl'
+    })
+    .state('itemPic', {
+      url: '/itemPic',
+      templateUrl: 'templates/itemPic.html',
+      controller: 'itemPicCtrl',
+    })
+    .state('itemLoc', {
+      url: '/itemLoc',
+      templateUrl: 'templates/itemLoc.html',
+      // controller: 'itemLocCtrl'
+    })
+        .state('itemName', {
+          url: '/itemName',
+          templateUrl: 'templates/itemName.html',
+          controller: 'itemNameCtrl',
+          resolve: {
+            items: ['ItemsService',
+            function(ItemsService){
+              return ItemsService.getItems()
+              .then(function(res) {
+                return res.data;
+                
+                
+              },function(error) {
 
-  });
+                    if (error.status == 404) {
+                      alert("The server has not found anything matching the Request-URI.");
+                    }
+                    else if (error.status == 500) {
+                      alert("The world has ended, or the server just isn’t online. I'd keep my eyes peeled for zombies!");
+                    }
+                    else if (error.status == 401) {
+                      alert("The request requires user authentication.");
+                    }
+                    else if (error.status == 503) {
+                      alert("Server did not respond.");
+                    }
 
-  
+                  });
+            }]
+          }
+        }
+
+)});

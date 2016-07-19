@@ -1,20 +1,20 @@
 angular.module('starter.controllers')
-    .controller('addItemCtrl', function($scope) {
+    .controller('addItemCtrl',['$scope','ItemsRest', function($scope, ItemsRest) {
 
- function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+//  function readURL(input) {
+//             if (input.files && input.files[0]) {
+//                 var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
+//                 reader.onload = function (e) {
+//                     $('#blah')
+//                         .attr('src', e.target.result)
+//                         .width(150)
+//                         .height(200);
+//                 };
 
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+//                 reader.readAsDataURL(input.files[0]);
+//             }
+//         }
 
         $scope.rooms = [{
             room: "Garage"
@@ -54,10 +54,14 @@ angular.module('starter.controllers')
             $scope.items.push(
                 $scope.item
             );
+            ItemsRest.save($scope.item);
+            
             
             //Clear input fields after push
             $scope.item = {};
             
         };
         
-    });
+        
+        
+    }]);
