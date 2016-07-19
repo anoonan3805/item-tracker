@@ -1,7 +1,32 @@
 /*global angular*/
-angular.module('starter.controllers')
 
- .controller('itemPicCtrl', function($scope, $cordovaImagePicker, $ionicPlatform) {
+angular.module('starter.controllers')
+     .controller('itemPicCtrl', ['$scope', 'ItemsRest', '$http', 'items',
+         function($scope, ItemsRest, $http, items) {
+
+$scope.items = items;
+
+
+         }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// angular.module('starter.controllers')
+
+//  .controller('itemPicCtrl', function($scope, $cordovaImagePicker, $ionicPlatform) {
  
   /*$scope.collection = {
         selectedImage : ''
@@ -10,23 +35,23 @@ angular.module('starter.controllers')
     $ionicPlatform.ready(function() {
  
  */
- $scope.getImageSaveContact = function() {       
-        // Image picker will load images according to these settings
-    var options = {
-        maximumImagesCount: 1, // Max number of selected images, I'm using only one for this example
-        width: 800,
-        height: 800,
-        quality: 80            // Higher is better
-    };
+//  $scope.getImageSaveContact = function() {       
+//         // Image picker will load images according to these settings
+//     var options = {
+//         maximumImagesCount: 1, // Max number of selected images, I'm using only one for this example
+//         width: 800,
+//         height: 800,
+//         quality: 80            // Higher is better
+//     };
  
-    $cordovaImagePicker.getPictures(options).then(function (results) {
-                // Loop through acquired images
-        for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);   // Print image URI
-        }
-    }, function(error) {
-        console.log('Error: ' + JSON.stringify(error));    // In case of error
-    });
-};  
+//     $cordovaImagePicker.getPictures(options).then(function (results) {
+//                 // Loop through acquired images
+//         for (var i = 0; i < results.length; i++) {
+//             console.log('Image URI: ' + results[i]);   // Print image URI
+//         }
+//     }, function(error) {
+//         console.log('Error: ' + JSON.stringify(error));    // In case of error
+//     });
+// };  
  
-});
+// });

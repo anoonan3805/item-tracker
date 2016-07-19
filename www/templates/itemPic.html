@@ -1,8 +1,22 @@
-<ion-pane>
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Image Picker Example</h1>
-    </ion-header-bar>
-    <ion-content ng-controller="itemPicCtrl">
+ <ion-view view-title="Search for Item by Picture">
+    <ion-content class="padding">
+ <ion-item collection-repeat="pic in items">
+    <!--<ion-item collection-repeat="name in user |orderBy:'location'" ng-click="goToItem(item)">-->
+    {{pic.pic}}
+</ion-item>
+</ion-content>
+</ion-view>
 
-    </ion-content>
- </ion-pane>
+
+
+
+
+
+<!--<ion-pane>-->
+<!--    <ion-header-bar class="bar-stable">-->
+<!--      <h1 class="title">Image Picker Example</h1>-->
+<!--    </ion-header-bar>-->
+<!--    <ion-content ng-controller="itemPicCtrl">-->
+
+<!--    </ion-content>-->
+<!-- </ion-pane>-->
