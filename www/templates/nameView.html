@@ -4,16 +4,15 @@
 <div class="list card">
 
   <div class="item item-avatar">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Spool_of_string.jpg/1161px-Spool_of_string.jpg">
-    <h2>String</h2>
-    <p>Attic</p>
+    <img ng-src="{{showItem.pic}}">
+    <h2>{{showItem.name}}</h2>
+    <p>{{showItem.location}}</p>
   </div>
 
   <div class="item item-body">
-    <img width="200px" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Spool_of_string.jpg/1161px-Spool_of_string.jpg">
-    This is what an item will look like when clicked on. Just have to get that working...
+    <img width="200px" ng-src="{{showItem.pic}}">
     <p>
-      Is this a string?
+      {{showItem.description}}
     </p>
     <p>
       <center><a href="#" class="subdued">Next Item</a></center>

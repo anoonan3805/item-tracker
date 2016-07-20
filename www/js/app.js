@@ -44,7 +44,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         })
         .state('nameView', {
           url: '/nameView',
-          templateUrl: 'templates/nameView.html'
+          templateUrl: 'templates/nameView.html',
+          controller: 'nameViewCtrl'
         })
         .state('addItem', {
           url: '/addItem',
@@ -61,9 +62,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           templateUrl: 'templates/itemPic.html',
           controller: 'itemPicCtrl',
           resolve: {
-            items: ['ItemsService',
-              function(ItemsService) {
-                return ItemsService.getItems()
+           items: ['ItemsService', '$window',
+                        function(ItemsService, $window) {
+                          return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
                   .then(function(res) {
                     return res.data;
                   }, function(error) {
@@ -90,9 +91,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           templateUrl: 'templates/itemLoc.html',
           controller: 'itemLocCtrl',
           resolve:{
-            items: ['ItemsService',
-              function(ItemsService) {
-                return ItemsService.getItems()
+            items: ['ItemsService', '$window',
+                        function(ItemsService, $window) {
+                          return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
                   .then(function(res) {
                     return res.data;
                   }, function(error) {
@@ -119,9 +120,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
                     templateUrl: 'templates/myItems.html',
                     controller: 'myItemsCtrl',
                     resolve: {
-                      items: ['ItemsService',
-                        function(ItemsService) {
-                          return ItemsService.getItems()
+                      items: ['ItemsService', '$window',
+                        function(ItemsService, $window) {
+                          return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
                             .then(function(res) {
                               return res.data;
                             }, function(error) {

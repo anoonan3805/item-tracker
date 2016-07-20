@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('addItemCtrl',['$scope','ItemsRest', function($scope, ItemsRest) {
+    .controller('addItemCtrl',['$scope','ItemsRest', '$window', function($scope, ItemsRest, $window) {
 
 //  function readURL(input) {
 //             if (input.files && input.files[0]) {
@@ -50,7 +50,7 @@ angular.module('starter.controllers')
         $scope.item = {};
         
         $scope.addItem=function(){
-        
+        $scope.item.userID = $window.localStorage.userID;
             $scope.items.push(
                 $scope.item
             );

@@ -10,7 +10,7 @@ angular.module('RESTServices')
             method: 'POST',
             data: item,
             headers:{
-                'Authorization': $window.localStorage.userID
+                'Authorization': $window.localStorage.token
             }
         });
     
