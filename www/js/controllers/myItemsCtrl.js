@@ -4,5 +4,12 @@ angular.module('starter.controllers')
 
 $scope.items = items;
 
+$scope.goToItem = function(item) {
+    // var info = {
+    //                 "name": item.name,
+    //                 "pic": item.pic,
+    //                 "description": item.description,
+    //                 "location": item.location,
+                };
 
          }]);

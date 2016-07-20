@@ -29,7 +29,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('landing', {
           url: '/',
           templateUrl: 'templates/landing.html',
-          controller: 'landingCtrl'
+          controller: 'landingCtrl',
+          cache: false
         })
         .state('register', {
           url: '/register',
@@ -39,6 +40,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('menu', {
           url: '/menu',
           templateUrl: 'templates/menu.html',
+          controller: 'menuCtrl'
+        })
+        .state('nameView', {
+          url: '/nameView',
+          templateUrl: 'templates/nameView.html'
         })
         .state('addItem', {
           url: '/addItem',

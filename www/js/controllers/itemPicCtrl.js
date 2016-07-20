@@ -7,6 +7,7 @@ angular.module('starter.controllers')
 $scope.items = items;
 
 
+
          }]);
 
 

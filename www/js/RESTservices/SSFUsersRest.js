@@ -20,14 +20,15 @@
      data: user
     });
    };
-    // SSFUsersRest.logOut=function(){
-    //  return $http({
-    //   url: apiUrl+"/logout",
-    //   method: 'POST',
-    //   headers: {
-    //   'Authorization':$window.localStorage.token
-    //   }
-    //   });
+   
+    SSFUsersRest.logOut=function(){
+     return $http({
+      url: apiUrl+"/logout",
+      method: 'POST',
+      headers: {
+      'Authorization':$window.localStorage.token
+      }
+      });
      
-   //};
+   };
   }]);

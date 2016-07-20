@@ -10,27 +10,30 @@ angular.module('RESTServices')
             method: 'POST',
             data: item,
             headers:{
-                'Authorization': $window.localStorage.token
+                'Authorization': $window.localStorage.userID
             }
         });
     
     };
 
-    ItemsRest.get = function(){
+    ItemsRest.get = function(token,userID){
         return $http ({
-            url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
-            //?filter[where][userID]=' + userID,
-            method: 'GET'
+            url: 'https://item-tracker-anoonan3805.c9users.io/api/Items?filter[where][userID]=' + userID,
+            method: 'GET',
+            headers: { 
+                'Authorization': token
             }
-        );
+        });
     };
+//   ItemsRest.delete = function(item){
+//         return $http ({
+//             url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+//             //?filter[where][userID]=' + userID,
+//             method: 'DELETE',
+//             headers:{
+//                 'Authorization':token 
+    
+    
 }]);
 
 
-// ItemsRest.get = function(token,userID){
-//         return $http ({
-//             url: 'https://item-tracker-anoonan3805.c9users.io/api/itemName',
-//             //?filter[where][userID]=' + userID,
-//             method: 'GET',
-//             headers:{
-//                 'Authorization':token
