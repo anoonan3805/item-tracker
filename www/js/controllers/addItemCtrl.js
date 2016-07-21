@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('addItemCtrl',['$scope','ItemsRest', '$window', function($scope, ItemsRest, $window) {
+    .controller('addItemCtrl',['$scope','ItemsRest', '$window', 'items', function($scope, ItemsRest, $window, items) {
 
 //  function readURL(input) {
 //             if (input.files && input.files[0]) {
@@ -16,13 +16,16 @@ angular.module('starter.controllers')
 //             }
 //         }
 
-        $scope.rooms = [{
-            room: "Garage"
-        }, {
-            room: "Attic"
-        }, {
-            room: "Basement"
-        }];
+        $scope.rooms = items;
+        
+        // [{
+            
+        // //     room: "Garage"
+        // // }, {
+        // //     room: "Attic"
+        // // }, {
+        // //     room: "Basement"
+        // }];
         // Add a Item to the list
         $scope.roomName = {};
 

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTServices', 'ItemsList'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTServices', 'ItemsList', 'angular.filter'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -47,10 +47,36 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           templateUrl: 'templates/cardView.html',
           controller: 'cardViewCtrl'
         })
+        .state('locationView', {
+          url: '/locationView',
+          templateUrl: 'templates/locationView.html',
+          controller: 'locationViewCtrl'
+        })
         .state('addItem', {
           url: '/addItem',
           templateUrl: 'templates/addItem.html',
-          controller: 'addItemCtrl'
+          controller: 'addItemCtrl',
+          cache: false,
+          resolve: {
+            items: ['ItemsService', '$window',
+                          function(ItemsService, $window) {
+                            var locations =[];
+                            return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
+                            
+                            
+                            .then(function(res){
+                            
+                              for (var i = 0; i<res.data.length; i++){
+                                 console.log(res.data[i].location);
+                              locations.push({room: res.data[i].location});
+                              //console.log (res.data[i]) 
+                                
+                              }
+                              console.log(locations);
+                              return locations;
+                            });
+                          }]
+          }
         })
         .state('itemName', {
           url: '/itemName',
