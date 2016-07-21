@@ -1,14 +1,19 @@
 /*global angular*/
 
 angular.module('starter.controllers')
-     .controller('itemPicCtrl', ['$scope', 'ItemsRest', '$http', 'items',
-         function($scope, ItemsRest, $http, items) {
+    .controller('itemPicCtrl', ['$scope', 'ItemsRest', '$http', 'items', 'ItemsService', '$state',
+        function($scope, ItemsRest, $http, items, ItemsService, $state) {
 
-$scope.items = items;
+            $scope.items = items;
 
+            $scope.goToItem = function(item) {
 
+                ItemsService.setInfo(item);
+                $state.go('cardView');
 
-         }]);
+            };
+        }
+    ]);
 
 
 

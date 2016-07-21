@@ -1,5 +1,5 @@
 angular.module('starter.controllers')
-    .controller('nameViewCtrl', ['$scope', 'ItemsService', '$state',
+    .controller('cardViewCtrl', ['$scope', 'ItemsService', '$state',
         function($scope, ItemsService, $state) {
             
             $scope.showItem = ItemsService.getItem();

@@ -1,6 +1,6 @@
  <ion-view view-title="Search for Item by Location">
     <ion-content class="padding">
- <ion-item collection-repeat="location in items">
+ <ion-item collection-repeat="location in items | orderBy: 'location'" ng-click=goToItem(location)>
     <!--<ion-item collection-repeat="name in user |orderBy:'location'" ng-click="goToItem(item)">-->
     {{location.location}}
 </ion-item>

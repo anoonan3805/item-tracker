@@ -3,14 +3,18 @@
 <div class="list list-inset">
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="text" placeholder="Search">
+    <input ng-model="search.$" type="text" placeholder="Search">
   </label>
 </div>
-<br><br><br>
-<center><button class="button button-outline button-positive">
-  Find My Item
-  </button>
-  </center>
- 
+<br><br>
+<ion-item collection-repeat="name in items | filter:search" ng-click=goToItem(name)>
+  {{name.name}}
+<!--<br><br><br>-->
+<!--<center><button class="button button-outline button-positive">-->
+<!--  Find My Item-->
+<!--  </button>-->
+<!--  </center>-->
+</ion-item>
+
 </ion-content>
 </ion-view>

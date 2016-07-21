@@ -42,10 +42,10 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           templateUrl: 'templates/menu.html',
           controller: 'menuCtrl'
         })
-        .state('nameView', {
-          url: '/nameView',
-          templateUrl: 'templates/nameView.html',
-          controller: 'nameViewCtrl'
+        .state('cardView', {
+          url: '/cardView',
+          templateUrl: 'templates/cardView.html',
+          controller: 'cardViewCtrl'
         })
         .state('addItem', {
           url: '/addItem',
@@ -55,7 +55,31 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('itemName', {
           url: '/itemName',
           templateUrl: 'templates/itemName.html',
-          //controller: 'itemNameCtrl'
+          controller: 'itemNameCtrl',
+          resolve: {
+           items: ['ItemsService', '$window',
+                        function(ItemsService, $window) {
+                          return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
+                  .then(function(res) {
+                    return res.data;
+                  }, function(error) {
+                    if (error.status == 404) {
+                      alert("The server has not found anything matching the Request-URI.");
+                    }
+                    else if (error.status == 500) {
+                      alert("The world has ended, or the server just isn’t online. I'd keep my eyes peeled for zombies!");
+                    }
+                    else if (error.status == 401) {
+                      alert("The request requires user authentication.");
+                    }
+                    else if (error.status == 503) {
+                      alert("Server did not respond.");
+                    }
+                  });
+                  
+              }
+            ]
+          }
         })
         .state('itemPic', {
           url: '/itemPic',
