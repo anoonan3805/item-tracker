@@ -1,21 +1,30 @@
  <ion-view view-title="Item Name Search Result">
     <ion-content class="padding">
 
-<div class="list card">
-
+<span>
+  <div class="list card">
+<center>
   <div class="item item-avatar">
-    <img ng-src="{{showItem.pic}}">
-    <h2>{{showItem.name}}</h2>
+    <img ng-src="{{showItem.pic}}"/>
+    <h2>{{showItem.name}}</h2><br>
     <p>{{showItem.location}}</p>
   </div>
 
   <div class="item item-body">
-    <img width="200px" ng-src="{{showItem.pic}}">
+    <img width="200px" ng-src="{{showItem.pic}}"/>
     <p>
       {{showItem.description}}
     </p>
   </div>
-
+</center>
 </div>
+</span>
+<!--<span> <center><button class="button button-outline button-positive" ui-sref="menu">-->
+<!--          Edit item-->
+<!--          <i class="ion-ios-compose"></i>-->
+<!--        </button><br><br>-->
+<!--        <button class="button button-outline button-calm" ui-sref="menu"> -->
+<!--        Delete item -->
+<!--        <i class="ion-ios-trash"></i></button></center></span>-->
 </ion-content>
 </ion-view>

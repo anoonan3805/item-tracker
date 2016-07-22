@@ -4,7 +4,7 @@
             <div class="input-label">Locations</div>
             <!--<input name="location" type="text" ng-model="item.location">-->
             <select ng-model="search.location">
-                <option ng-repeat="location in items">{{location.location}}</option>
+                <option ng-repeat="location in items | unique: 'location' | orderBy: 'location'">{{location.location}}</option>
             </select>
         </label>
         <br><br><br>

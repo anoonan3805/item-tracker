@@ -25,15 +25,25 @@ angular.module('RESTServices')
             }
         });
     };
-//   ItemsRest.delete = function(item){
-//         return $http ({
-//             url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
-//             //?filter[where][userID]=' + userID,
-//             method: 'DELETE',
-//             headers:{
-//                 'Authorization':token 
     
+    ItemsRest.edit = function(item){
+    return $http({
+        url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+        method: 'PUT',
+        headers: {
+            'Authorization': $window.localStorage.token
+        }
+    });
+        
+    };
     
-}]);
-
-
+  ItemsRest.delete = function(item) {
+  return $http({
+      url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+      method: 'DELETE',
+      headers: {
+          'Authorization': $window.localStorage.token
+      }
+  });
+  };
+  }]);

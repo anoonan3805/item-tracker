@@ -45,7 +45,13 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('cardView', {
           url: '/cardView',
           templateUrl: 'templates/cardView.html',
-          controller: 'cardViewCtrl'
+          controller: 'cardViewCtrl',
+          // resolve: {
+          //   items:['ItemsService', '$window',
+          //   function(ItemsService, $window) {
+              
+          //   }]
+          // }
         })
         .state('locationView', {
           url: '/locationView',

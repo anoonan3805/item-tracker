@@ -8,7 +8,7 @@
   </label>
             <label class="item item-input">
        <span class="input-label">Add picture</span>
-       <input name="pic" type="text" ng-model="item.pic" placeholder="Paste your image url here to preview your picture">
+       <input name="pic" type="text" ng-model="item.pic" placeholder="Paste image url here">
        <!--<input type="file" onchange="readURL(this);" name="pic" ng-model="item.pic" accept="image/*;capture=camera">-->
     <img id="blah" src="{{item.pic}}" width="200px">
   </label>
@@ -20,11 +20,11 @@
             <div class="input-label">Location</div>
             <!--<input name="location" type="text" ng-model="item.location">-->
             <select ng-model="item.location">
-                <option ng-repeat="x in rooms" value="{{x.room}}">{{x.room}}</option>
+                <option ng-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">{{x.room}}</option>
             </select>
         </label>
-        <input value=$scope.roomName type="text" placeholder="Add a new location here" ng-model="roomName.room">
-            <button ng-click="addRoom()">Add Location</button>
+        <input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">
+        <button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>
 
             
         </div>
