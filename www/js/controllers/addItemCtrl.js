@@ -15,17 +15,10 @@ angular.module('starter.controllers')
 //                 reader.readAsDataURL(input.files[0]);
 //             }
 //         }
-
+        //Pulls locations(rooms) from the backend
         $scope.rooms = items;
         
-        // [{
-            
-        // //     room: "Garage"
-        // // }, {
-        // //     room: "Attic"
-        // // }, {
-        // //     room: "Basement"
-        // }];
+        
         // Add a Item to the list
         $scope.roomName = {};
 

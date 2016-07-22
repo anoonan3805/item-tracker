@@ -1,7 +1,19 @@
  <ion-view view-title="Search for Item by Location">
     <ion-content class="padding">
- <ion-item collection-repeat="location in items | unique: 'location'" ui-sref="locationView">
-    {{location.location}}
+     <label class="item item-input item-select">
+            <div class="input-label">Locations</div>
+            <!--<input name="location" type="text" ng-model="item.location">-->
+            <select ng-model="search.location">
+                <option ng-repeat="location in items">{{location.location}}</option>
+            </select>
+        </label>
+        <br><br><br>
+        <ion-item collection-repeat="name in items | filter:search.location" ng-click=goToItem(name)>
+         {{name.name}}
+<!--<br><br><br> <center><button ng-click="searchRoom()" class="button button-outline button-calm">-->
+<!--          Search-->
+<!--          <i class="ion-ios-search-strong"></i>-->
+<!--        </button></center>-->
 </ion-item>
 </ion-content>
 </ion-view>
