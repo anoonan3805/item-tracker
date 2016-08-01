@@ -46,12 +46,13 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           url: '/cardView',
           templateUrl: 'templates/cardView.html',
           controller: 'cardViewCtrl',
-          // resolve: {
-          //   items:['ItemsService', '$window',
-          //   function(ItemsService, $window) {
+          resolve: {
+            items:['ItemsService', '$window',
+            function(ItemsService, $window) {
+              return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID);
               
-          //   }]
-          // }
+            }]
+          }
         })
         .state('locationView', {
           url: '/locationView',
@@ -170,6 +171,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
                     url: '/myItems',
                     templateUrl: 'templates/myItems.html',
                     controller: 'myItemsCtrl',
+                    cache: false,
                     resolve: {
                       items: ['ItemsService', '$window',
                         function(ItemsService, $window) {

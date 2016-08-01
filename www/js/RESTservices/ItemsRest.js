@@ -26,10 +26,11 @@ angular.module('RESTServices')
         });
     };
     
-    ItemsRest.edit = function(item){
+    ItemsRest.edit = function(data){
     return $http({
-        url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+        url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/'+ $window.localStorage.ItemID,
         method: 'PUT',
+        data: data,
         headers: {
             'Authorization': $window.localStorage.token
         }
@@ -37,13 +38,24 @@ angular.module('RESTServices')
         
     };
     
-  ItemsRest.delete = function(item) {
+  ItemsRest.delete = function() {
   return $http({
-      url: 'https://item-tracker-anoonan3805.c9users.io/api/Items',
+      url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/'+ $window.localStorage.ItemID,
       method: 'DELETE',
       headers: {
           'Authorization': $window.localStorage.token
       }
   });
   };
+  
+  ItemsRest.update = function () {
+      return $http({
+          url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/myItems',
+          method: 'PUT',
+          headers: {
+              'Authorization': $window.localStorage.token
+          }
+      });
+  };
+
   }]);
