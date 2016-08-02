@@ -5,6 +5,7 @@ $scope.logOut = function() {
                 SSFUsersRest.logOut()
                 delete $window.localStorage.token;
                 delete $window.localStorage.userID;
+                delete $window.localStorage.ItemID;
                 $state.go('landing');
             };
             
