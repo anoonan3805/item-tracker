@@ -1,0 +1,43 @@
+<ion-modal-view class="pane">
+    <ion-header-bar class="bar-positive nav-title-slide-ios7">
+        <h1 class = "title"> Edit Item</h1>
+        <button class ="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+    <ion-content class="padding" class="pane">
+        <!--<div class="list list-inset">-->
+        <form name="changeItem" ng-submit="editItem(changeItem)" >
+            <div class="list">
+                 <label class="item item-input">
+      <span class="input-label">Item name</span>
+    <input name="name" type="text" ng-model="item.name">
+  </label>
+            <label class="item item-input">
+       <span class="input-label">Add picture</span>
+       <input name="pic" type="text" ng-model="item.pic" placeholder="Paste image url here">
+      
+    <img id="blah" src="{{item.pic}}" width="200px">
+  </label>
+            <label class="item item-input">
+       <span class="input-label">Description</span>
+    <input name="description" type="text" ng-model="item.description">
+  </label>
+        <label class="item item-input item-select">
+            <div class="input-label">Location</div>
+           
+            <select ng-model="item.location">
+                <option ng-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">{{x.room}}</option>
+            </select>
+        </label>
+        <input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">
+        <button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>
+
+            
+        </div>
+        <br><br><br> <center><button ng-click="editItem()" class="button button-outline button-calm">
+          Edit Item
+          <i class="ion-ios-plus-outline"></i>
+        </button></center>
+        </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

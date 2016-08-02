@@ -51,7 +51,20 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
             function(ItemsService, $window) {
               return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID);
               
-            }]
+            }],
+            editItems: ['ItemsService', '$window',
+                          function(ItemsService, $window) {
+                            var locations =[];
+                            return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
+                            .then(function(res){
+                              for (var i = 0; i<res.data.length; i++){
+                                 console.log(res.data[i].location);
+                              locations.push({room: res.data[i].location});
+                              }
+                              console.log(locations);
+                              return locations;
+                            });
+                          }]
           }
         })
         .state('locationView', {
