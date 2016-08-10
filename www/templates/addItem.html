@@ -20,12 +20,6 @@
             <div class="input-label">Location</div>
             <!--<input name="location" type="text" ng-model="item.location">-->
             <select ng-model="item.location">
-                <option>Attic</option>
-                <option>Basement</option>
-                <option>Bathroom</option>
-                <option>Bedroom</option>
-                <option>Garage</option>
-                <option>Kitchen</option>
                 <option ng-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">{{x.room}}</option>
             </select>
         </label>
@@ -40,7 +34,7 @@
         </button></center><br><br>
         
         <div class="bar bar-positive">
-  <h1 class="title">Or, add a new location below</h1>
+  <h1 class="title">Don't see the location you're looking for? Add it below!</h1>
 </div><br><br>
 <label class="item item-input">
  <input value=$scope.roomName type="text" placeholder="Enter new location here" ng-model="roomName.room">

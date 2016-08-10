@@ -104,14 +104,15 @@ angular.module('starter.controllers')
         };
         $scope.item = {};
         $scope.editItem = function(){
-            ItemsRest.edit()
+            ItemsRest.update($scope.item)
             .then(function(response) {
                 if(response.status == 200) {
-                    response.data.userID = $window.localStorage.userID;
+                    $scope.showItem=response.data;
+                    $scope.item = {};
+                    // response.data.userID = $window.localStorage.userID;
                     $scope.closeModal();
                 }
             }, function (error) {
-                alert(JSON.stringify(error));
                 return error;
             
             });

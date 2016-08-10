@@ -1,4 +1,9 @@
 /* Empty. Add your own CSS if you like */
-.aqua {
-    color:#7FFFD4;
+.row.unlimited-items {
+  flex-wrap: wrap;
+}
+
+.row.unlimited-items .col{
+  flex: none;
+  width: 50%;
 }

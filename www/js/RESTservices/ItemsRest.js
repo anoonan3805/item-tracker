@@ -21,7 +21,7 @@ angular.module('RESTServices')
             url: 'https://item-tracker-anoonan3805.c9users.io/api/Items?filter[where][userID]=' + userID,
             method: 'GET',
             headers: { 
-                'Authorization': token
+                'Authorization': $window.localStorage.token
             }
         });
     };
@@ -49,10 +49,11 @@ angular.module('RESTServices')
   });
   };
   
-  ItemsRest.update = function () {
+  ItemsRest.update = function (data) {
       return $http({
-          url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/myItems',
+          url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/'+$window.localStorage.ItemID,
           method: 'PUT',
+          data:data,
           headers: {
               'Authorization': $window.localStorage.token
           }

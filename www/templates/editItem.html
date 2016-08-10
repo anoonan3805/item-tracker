@@ -28,16 +28,22 @@
                 <option ng-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">{{x.room}}</option>
             </select>
         </label>
-        <input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">
-        <button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>
+        <!--<input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">-->
+        <!--<button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>-->
 
-            
         </div>
-        <br><br><br> <center><button ng-click="editItem()" class="button button-outline button-calm">
+        <br><br> <center><button ng-click="editItem(item)" class="button button-outline button-calm">
           Edit Item
           <i class="ion-ios-plus-outline"></i>
-        </button></center>
-        </div>
+        </button></center><br><br>
+        <div class="bar bar-positive">
+  <h1 class="title">Don't see the location you're looking for? Add it below!</h1>
+</div><br><br>
+<label class="item item-input">
+ <input value=$scope.roomName type="text" placeholder="Enter new location here" ng-model="roomName.room">
+            </label><br>
+           <center> <button class="button button-outline button-calm" ng-click="addRoom()">Add Location
+        <i class="ion-ios-plus-outline"></i>
         </form>
     </ion-content>
 </ion-modal-view>

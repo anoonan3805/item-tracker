@@ -51,7 +51,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
             items:['ItemsService', '$window',
             function(ItemsService, $window) {
               return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID);
-              
             }],
             editItems: ['ItemsService', '$window',
                           function(ItemsService, $window) {
@@ -111,6 +110,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
                               return locations;
                             });
                           }]
+                          
           }
         })
         .state('itemName', {
