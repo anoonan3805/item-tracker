@@ -50,7 +50,7 @@ angular.module('starter.controllers')
                             });
                             alert("The item was deleted.");
                             $state.go($state.current, {}, {reload:true});
-                            $state.go('myItems',{},{reload:true});
+                            $state.go('menu',{},{reload:true});
 
 
                         }

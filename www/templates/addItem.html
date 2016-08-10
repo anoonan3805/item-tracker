@@ -20,17 +20,33 @@
             <div class="input-label">Location</div>
             <!--<input name="location" type="text" ng-model="item.location">-->
             <select ng-model="item.location">
+                <option>Attic</option>
+                <option>Basement</option>
+                <option>Bathroom</option>
+                <option>Bedroom</option>
+                <option>Garage</option>
+                <option>Kitchen</option>
                 <option ng-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">{{x.room}}</option>
             </select>
         </label>
-        <input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">
-        <button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>
+        <!--<input value=$scope.roomName type="text" placeholder="Add new location here" ng-model="roomName.room">-->
+        <!--<button class="button button-small button-outline button-positive" ng-click="addRoom()">Add Location</button>-->
 
             
-        </div>
-        <br><br><br> <center><button ng-click="addItem()" class="button button-outline button-calm">
+        <!--</div>-->
+        <br><center><button ng-click="addItem()" class="button button-outline button-positive">
           Add Item
           <i class="ion-ios-plus-outline"></i>
-        </button></center>
+        </button></center><br><br>
+        
+        <div class="bar bar-positive">
+  <h1 class="title">Or, add a new location below</h1>
+</div><br><br>
+<label class="item item-input">
+ <input value=$scope.roomName type="text" placeholder="Enter new location here" ng-model="roomName.room">
+            </label><br>
+           <center> <button class="button button-outline button-calm" ng-click="addRoom()">Add Location
+        <i class="ion-ios-plus-outline"></i>
+        </button></center><br>
     </ion-content>
 </ion-view>

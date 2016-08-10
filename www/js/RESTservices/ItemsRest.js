@@ -41,6 +41,7 @@ angular.module('RESTServices')
   ItemsRest.delete = function() {
   return $http({
       url: 'https://item-tracker-anoonan3805.c9users.io/api/Items/'+ $window.localStorage.ItemID,
+      cache: false,
       method: 'DELETE',
       headers: {
           'Authorization': $window.localStorage.token

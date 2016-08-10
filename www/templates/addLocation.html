@@ -1,0 +1,27 @@
+<ion-view view-title="Add Location">
+    <ion-nav-back-button>
+      </ion-nav-back-button>
+    <ion-content class="padding">
+        <label class="item item-input">
+            <span class="input-label">Add New Location</span>
+        <input value=$scope.roomName type="text" ng-model="roomName.room">
+            </label><br>
+           <center> <button class="button button-outline button-positive" ng-click="addRoom()">Add
+        <i class="ion-ios-plus-outline"></i>
+        </button></center><br>
+        
+        <div class="bar bar-positive">
+  <h1 class="title">Locations</h1>
+</div><br><br>
+       
+
+
+            
+        <ion-item collection-repeat="x in rooms| unique: 'room'| orderBy: 'room'" value="{{x.room}}">
+        {{x.room}}
+           </ion-item>
+        
+        </div>
+        
+    </ion-content>
+</ion-view>

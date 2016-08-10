@@ -1,7 +1,6 @@
  <ion-view view-title="Search for Item by Picture">
     <ion-content class="padding">
  <ion-item ng-repeat="pic in items | orderBy: 'name'" ng-click=goToItem(pic)>
-    <!--<ion-item collection-repeat="name in user |orderBy:'location'" ng-click="goToItem(item)">-->
     <center><img src="{{pic.pic}}" width="100px"></center>
 </ion-item>
 </ion-content>

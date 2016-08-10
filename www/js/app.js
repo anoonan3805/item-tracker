@@ -45,6 +45,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('cardView', {
           url: '/cardView',
           templateUrl: 'templates/cardView.html',
+          cache: false,
           controller: 'cardViewCtrl',
           resolve: {
             items:['ItemsService', '$window',
@@ -76,7 +77,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
           url: '/addItem',
           templateUrl: 'templates/addItem.html',
           controller: 'addItemCtrl',
-          cache: false,
+          resolve: {
+            items: ['ItemsService', '$window',
+                          function(ItemsService, $window) {
+                            var locations =[];
+                            return ItemsService.getItems($window.localStorage.token, $window.localStorage.userID)
+                            .then(function(res){
+                              for (var i = 0; i<res.data.length; i++){
+                                 console.log(res.data[i].location);
+                              locations.push({room: res.data[i].location});
+                              }
+                              console.log(locations);
+                              return locations;
+                            });
+                          }]
+          }
+        })
+        .state('addLocation', {
+          url: '/addLocation',
+          templateUrl: 'templates/addLocation.html',
+          controller: 'addLocationCtrl',
           resolve: {
             items: ['ItemsService', '$window',
                           function(ItemsService, $window) {
@@ -125,6 +145,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('itemPic', {
           url: '/itemPic',
           templateUrl: 'templates/itemPic.html',
+          cache: false,
           controller: 'itemPicCtrl',
           resolve: {
            items: ['ItemsService', '$window',
@@ -154,6 +175,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'RESTSer
         .state('itemLoc', {
           url: '/itemLoc',
           templateUrl: 'templates/itemLoc.html',
+          cache: false,
           controller: 'itemLocCtrl',
           resolve:{
             items: ['ItemsService', '$window',
