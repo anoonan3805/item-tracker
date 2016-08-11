@@ -1,5 +1,7 @@
 <ion-view view-title="Add Item">
     <ion-content class="padding">
+        <ion-nav-back-button>
+      </ion-nav-back-button>
         <div class="list list-inset">
             <label class="item item-input">
       <span class="input-label">Item name</span>
@@ -34,13 +36,14 @@
         </button></center><br><br>
         
         <div class="bar bar-positive">
-  <h1 class="title">Don't see the location you're looking for? Add it below!</h1>
+  <h1 class="title">Add New Location</h1>
 </div><br><br>
 <label class="item item-input">
- <input value=$scope.roomName type="text" placeholder="Enter new location here" ng-model="roomName.room">
+ <input value=$scope.roomName type="text" placeholder="Don't see the location you're looking for? Add it here!" ng-model="roomName.room">
             </label><br>
            <center> <button class="button button-outline button-calm" ng-click="addRoom()">Add Location
         <i class="ion-ios-plus-outline"></i>
         </button></center><br>
+        
     </ion-content>
 </ion-view>
